@@ -96,7 +96,7 @@ async function main(): Promise<void> {
       snapshotDir,
       sourceRepoUrl,
       commit,
-      useAmpForClassification: !!process.env.AMP_ACCESS_TOKEN
+      useAmpForClassification: !!process.env.AMP_API_KEY
     })
   } else {
     console.error(`Unknown command: ${command}`)

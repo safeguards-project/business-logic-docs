@@ -2,6 +2,20 @@ import { execute } from '@sourcegraph/amp-sdk'
 import type { ExtractedFunction } from '../extractors/python-extractor.js'
 import type { ExtractedSQLBlock } from '../extractors/sql-extractor.js'
 
+async function executePrompt(prompt: string): Promise<string> {
+  let result = ''
+  for await (const message of execute({ prompt })) {
+    if (message.type === 'result') {
+      if (message.is_error) {
+        throw new Error(message.error)
+      }
+      result = message.result
+      break
+    }
+  }
+  return result
+}
+
 export type Classification = 'business_logic' | 'pipeline_code'
 
 export interface ClassificationResult {
@@ -196,7 +210,7 @@ ${truncatedSource}
 Respond with ONLY valid JSON in this exact format:
 {"classification": "business_logic" or "pipeline_code", "reason": "brief explanation"}`
 
-    const response = await execute({ prompt })
+    const response = await executePrompt(prompt)
 
     try {
       const jsonMatch = response.match(/\{[\s\S]*\}/)
