@@ -1,0 +1,22 @@
+node_modules/
+dist/
+.snapshots/
+*.log
+.env
+.env.local
+
+# Generated docs are committed, but snapshots are not
+!docs/
+docs/**/!.gitkeep
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test coverage
+coverage/
