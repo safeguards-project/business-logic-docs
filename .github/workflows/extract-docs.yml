@@ -29,7 +29,6 @@ jobs:
           repository: safeguards-project/source-code
           path: source-code
           ref: ${{ github.event.inputs.source_ref || github.event.client_payload.ref || 'master' }}
-          token: ${{ secrets.SOURCE_CODE_PAT }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
