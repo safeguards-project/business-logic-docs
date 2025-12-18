@@ -26,9 +26,9 @@ jobs:
       - name: Checkout source-code repository
         uses: actions/checkout@v4
         with:
-          repository: isuru-f/source-code
+          repository: Isuru-F/source-code
           path: source-code
-          ref: ${{ github.event.inputs.source_ref || github.event.client_payload.ref || 'main' }}
+          ref: ${{ github.event.inputs.source_ref || github.event.client_payload.ref || 'master' }}
           token: ${{ secrets.SOURCE_CODE_PAT }}
 
       - name: Setup Node.js
