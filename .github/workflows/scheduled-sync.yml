@@ -22,7 +22,7 @@ jobs:
       - name: Checkout source-code repository
         uses: actions/checkout@v4
         with:
-          repository: isuru-f/source-code
+          repository: safeguards-project/source-code
           path: source-code
           token: ${{ secrets.SOURCE_CODE_PAT }}
 
