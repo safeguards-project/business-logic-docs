@@ -2,37 +2,36 @@
 
 Auto-generated documentation extracted from source code.
 
-**Generated:** 2025-12-22T13:19:29.227Z
+**Generated:** 2025-12-22T22:05:00.963Z
 
 ## Overview
 
 | Category | Python Functions | SQL Blocks |
 |----------|------------------|------------|
-| [Business Logic](./business-logic/) | 22 | 10 |
-| [Pipeline Code](./pipeline-code/) | 6 | 1 |
-| **Total** | **28** | **11** |
+| [Business Logic](./business-logic/) | 21 | 14 |
+| [Pipeline Code](./pipeline-code/) | 5 | 1 |
+| **Total** | **26** | **15** |
 
 ## Quick Links
 
 ### Business Logic
 
 - [`sample_accounts`](./business-logic/..-source-code-tests-test_rag_calculator.md#sample_accounts) - Create sample accounts DataFrame.
-- [`test_red_status_50_percent_increase`](./business-logic/..-source-code-tests-test_rag_calculator.md#test_red_status_50_percent_increase) - Test that 50%+ increase results in RED status.
-- [`test_amber_status_35_percent_increase`](./business-logic/..-source-code-tests-test_rag_calculator.md#test_amber_status_35_percent_increase) - Test that 30-49% increase results in AMBER status.
-- [`test_green_status_20_percent_increase`](./business-logic/..-source-code-tests-test_rag_calculator.md#test_green_status_20_percent_increase) - Test that <30% increase results in GREEN status.
-- [`test_green_status_new_customer_no_previous_month`](./business-logic/..-source-code-tests-test_rag_calculator.md#test_green_status_new_customer_no_previous_month) - Test that new customers with no previous month data get GREEN status.
-- [`test_order_limit_exceeded`](./business-logic/..-source-code-tests-test_rag_calculator.md#test_order_limit_exceeded) - Test that exceeding order limit is flagged.
-- [`test_order_limit_not_exceeded`](./business-logic/..-source-code-tests-test_rag_calculator.md#test_order_limit_not_exceeded) - Test that staying within order limit is not flagged.
-- [`test_exactly_30_percent_is_amber`](./business-logic/..-source-code-tests-test_rag_calculator.md#test_exactly_30_percent_is_amber) - Test that exactly 30% increase results in AMBER (boundary case).
-- [`test_exactly_50_percent_is_red`](./business-logic/..-source-code-tests-test_rag_calculator.md#test_exactly_50_percent_is_red) - Test that exactly 50% increase results in RED (boundary case).
-- [`test_decrease_in_orders_is_green`](./business-logic/..-source-code-tests-test_rag_calculator.md#test_decrease_in_orders_is_green) - Test that a decrease in orders results in GREEN status.
-- ... and 12 more
+- [`test_valid_records_go_to_result_table`](./business-logic/..-source-code-tests-test_rag_calculator.md#test_valid_records_go_to_result_table) - Test that valid records go to result_table, not holding_table.
+- [`test_missing_customer_name_routed_to_holding`](./business-logic/..-source-code-tests-test_rag_calculator.md#test_missing_customer_name_routed_to_holding) - Test that records with missing customer_name go to holding_table.
+- [`test_missing_order_limit_routed_to_holding`](./business-logic/..-source-code-tests-test_rag_calculator.md#test_missing_order_limit_routed_to_holding) - Test that records with missing order_limit go to holding_table.
+- [`test_holding_table_has_hold_timestamp`](./business-logic/..-source-code-tests-test_rag_calculator.md#test_holding_table_has_hold_timestamp) - Test that holding_table records include hold_timestamp.
+- [`test_result_table_has_expected_columns`](./business-logic/..-source-code-tests-test_rag_calculator.md#test_result_table_has_expected_columns) - Test that result_table has all expected columns.
+- [`test_holding_table_has_expected_columns`](./business-logic/..-source-code-tests-test_rag_calculator.md#test_holding_table_has_expected_columns) - Test that holding_table has all expected columns.
+- [`test_mixed_valid_and_invalid_records`](./business-logic/..-source-code-tests-test_rag_calculator.md#test_mixed_valid_and_invalid_records) - Test that valid and invalid records are correctly split.
+- [`calculate_monthly_totals`](./business-logic/..-source-code-src-pyspark-rag_calculator.md#calculate_monthly_totals) - Calculate monthly order totals per account.
+- [`enrich_with_account_data`](./business-logic/..-source-code-src-pyspark-rag_calculator.md#enrich_with_account_data) - Enrich monthly totals with account information.
+- ... and 11 more
 
 ### Pipeline Code
 
 - [`spark`](./pipeline-code/..-source-code-tests-test_rag_calculator.md#spark) - Create a SparkSession for testing.
-- [`sample_orders_same_month`](./pipeline-code/..-source-code-tests-test_rag_calculator.md#sample_orders_same_month) - Create orders all in the same month for testing.
-- [`sample_orders_two_months`](./pipeline-code/..-source-code-tests-test_rag_calculator.md#sample_orders_two_months) - Create orders spanning two months for MoM comparison.
+- [`sample_orders`](./pipeline-code/..-source-code-tests-test_rag_calculator.md#sample_orders) - Create sample orders DataFrame.
 - [`test_monthly_totals_calculation`](./pipeline-code/..-source-code-tests-test_rag_calculator.md#test_monthly_totals_calculation) - Test that monthly totals are calculated correctly.
-- [`__init__`](./pipeline-code/..-source-code-src-pyspark-rag_calculator.md#__init__) - Initialize the RAG calculator with a Spark session.
+- [`__init__`](./pipeline-code/..-source-code-src-pyspark-rag_calculator.md#__init__) - Initialize the validator with a Spark session.
 - [`__init__`](./pipeline-code/..-source-code-src-pyspark-customer_orders_pipeline.md#__init__) - Initialize the pipeline with a Spark session.

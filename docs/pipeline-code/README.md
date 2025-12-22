@@ -3,15 +3,14 @@
 This directory contains auto-generated documentation for pipeline code functions.
 
 ## Summary
-- **Python Functions:** 6
+- **Python Functions:** 5
 - **SQL Blocks:** 1
 
 ## Python Functions
 
 ### [test_rag_calculator.py](./..-source-code-tests-test_rag_calculator.md)
 - `spark`
-- `sample_orders_same_month`
-- `sample_orders_two_months`
+- `sample_orders`
 - `test_monthly_totals_calculation`
 
 ### [rag_calculator.py](./..-source-code-src-pyspark-rag_calculator.md)
