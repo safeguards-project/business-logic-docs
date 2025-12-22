@@ -26,7 +26,7 @@ jobs:
       - name: Checkout source-code repository
         uses: actions/checkout@v4
         with:
-          repository: Isuru-F/source-code
+          repository: safeguards-project/source-code
           path: source-code
           ref: ${{ github.event.inputs.source_ref || github.event.client_payload.ref || 'master' }}
           token: ${{ secrets.SOURCE_CODE_PAT }}
