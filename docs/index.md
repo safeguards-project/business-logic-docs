@@ -1,49 +1,38 @@
 # Business Logic Documentation Index
 
-This directory contains auto-generated documentation extracted from the source code repository.
+Auto-generated documentation extracted from source code.
 
-## Structure
+**Generated:** 2025-12-22T13:11:51.123Z
 
-- **[business-logic/](./business-logic/)** - Functions and SQL implementing business rules, thresholds, and domain logic
-- **[pipeline-code/](./pipeline-code/)** - Data loading, transformation, and infrastructure code
+## Overview
 
-## How It Works
+| Category | Python Functions | SQL Blocks |
+|----------|------------------|------------|
+| [Business Logic](./business-logic/) | 22 | 10 |
+| [Pipeline Code](./pipeline-code/) | 6 | 1 |
+| **Total** | **28** | **11** |
 
-Documentation is automatically extracted using tree-sitter parsing when:
-1. Changes are pushed to the source-code repository (via webhook)
-2. The scheduled daily sync runs
-3. Manual extraction is triggered
+## Quick Links
 
-## Marking Business Logic
+### Business Logic
 
-To ensure your code is correctly classified, use `BUSINESS_RULE` markers:
+- [`sample_accounts`](./business-logic/..-source-code-tests-test_rag_calculator.md#sample_accounts) - Create sample accounts DataFrame.
+- [`test_red_status_50_percent_increase`](./business-logic/..-source-code-tests-test_rag_calculator.md#test_red_status_50_percent_increase) - Test that 50%+ increase results in RED status.
+- [`test_amber_status_35_percent_increase`](./business-logic/..-source-code-tests-test_rag_calculator.md#test_amber_status_35_percent_increase) - Test that 30-49% increase results in AMBER status.
+- [`test_green_status_20_percent_increase`](./business-logic/..-source-code-tests-test_rag_calculator.md#test_green_status_20_percent_increase) - Test that <30% increase results in GREEN status.
+- [`test_green_status_new_customer_no_previous_month`](./business-logic/..-source-code-tests-test_rag_calculator.md#test_green_status_new_customer_no_previous_month) - Test that new customers with no previous month data get GREEN status.
+- [`test_order_limit_exceeded`](./business-logic/..-source-code-tests-test_rag_calculator.md#test_order_limit_exceeded) - Test that exceeding order limit is flagged.
+- [`test_order_limit_not_exceeded`](./business-logic/..-source-code-tests-test_rag_calculator.md#test_order_limit_not_exceeded) - Test that staying within order limit is not flagged.
+- [`test_exactly_30_percent_is_amber`](./business-logic/..-source-code-tests-test_rag_calculator.md#test_exactly_30_percent_is_amber) - Test that exactly 30% increase results in AMBER (boundary case).
+- [`test_exactly_50_percent_is_red`](./business-logic/..-source-code-tests-test_rag_calculator.md#test_exactly_50_percent_is_red) - Test that exactly 50% increase results in RED (boundary case).
+- [`test_decrease_in_orders_is_green`](./business-logic/..-source-code-tests-test_rag_calculator.md#test_decrease_in_orders_is_green) - Test that a decrease in orders results in GREEN status.
+- ... and 12 more
 
-```python
-def calculate_rag_status(current: float, previous: float) -> str:
-    """
-    Calculate RAG status for order monitoring.
-    
-    BUSINESS_RULE: RED if month-over-month increase >= 50%
-    BUSINESS_RULE: AMBER if increase between 30-49%
-    BUSINESS_RULE: GREEN if increase < 30%
-    """
-    increase = ((current - previous) / previous) * 100
-    
-    if increase >= 50:
-        return "RED"
-    elif increase >= 30:
-        return "AMBER"
-    return "GREEN"
-```
+### Pipeline Code
 
-```sql
--- BUSINESS_RULE: Orders exceeding $10,000 require manager approval
-SELECT order_id, total_amount
-FROM orders
-WHERE total_amount > 10000
-  AND approval_status IS NULL;
-```
-
-## Last Updated
-
-This index was auto-generated. See individual documentation files for last update timestamps.
+- [`spark`](./pipeline-code/..-source-code-tests-test_rag_calculator.md#spark) - Create a SparkSession for testing.
+- [`sample_orders_same_month`](./pipeline-code/..-source-code-tests-test_rag_calculator.md#sample_orders_same_month) - Create orders all in the same month for testing.
+- [`sample_orders_two_months`](./pipeline-code/..-source-code-tests-test_rag_calculator.md#sample_orders_two_months) - Create orders spanning two months for MoM comparison.
+- [`test_monthly_totals_calculation`](./pipeline-code/..-source-code-tests-test_rag_calculator.md#test_monthly_totals_calculation) - Test that monthly totals are calculated correctly.
+- [`__init__`](./pipeline-code/..-source-code-src-pyspark-rag_calculator.md#__init__) - Initialize the RAG calculator with a Spark session.
+- [`__init__`](./pipeline-code/..-source-code-src-pyspark-customer_orders_pipeline.md#__init__) - Initialize the pipeline with a Spark session.
