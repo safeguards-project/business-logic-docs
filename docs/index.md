@@ -2,7 +2,7 @@
 
 Auto-generated documentation extracted from source code.
 
-**Generated:** 2026-06-26T06:02:41.563Z
+**Generated:** 2026-06-27T05:47:28.344Z
 
 ## Overview
 
